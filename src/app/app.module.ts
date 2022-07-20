@@ -27,12 +27,24 @@ import {  MatTableModule } from '@angular/material/table';
 import {  MatPaginatorModule } from '@angular/material/paginator';
 import { DatatestComponent } from './admin/datatest/datatest.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import {MatMenuModule} from '@angular/material/menu';
 import { TestComponent } from './test/test.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { ButtonCellRendererComponent } from './button-cell-renderer/button-cell-renderer.component';
 import { EditAccountFormComponent } from './admin/edit-account-form/edit-account-form.component';
+import { AddClubComponent } from './admin/add-club/add-club.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ViewClubsComponent } from './admin/view-clubs/view-clubs.component';
+import { LookForClubComponent } from './admin/look-for-club/look-for-club.component';
+import { ButtonDetailRendererComponent } from './admin/button-detail-renderer/button-detail-renderer.component';
+import { ViewdetailformComponent } from './admin/viewdetailform/viewdetailform.component';
+import { EditClubComponent } from './admin/edit-club/edit-club.component';
+import { ButtonDetail1RendererComponent } from './admin/button-detail1-renderer/button-detail1-renderer.component';
+
+import { EditClubForm1Component } from './admin/edit-club-form1/edit-club-form1.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +62,15 @@ import { EditAccountFormComponent } from './admin/edit-account-form/edit-account
     EditAccountComponent,
     ButtonCellRendererComponent,
     EditAccountFormComponent,
+    AddClubComponent,
+    ViewClubsComponent,
+    LookForClubComponent,
+    ButtonDetailRendererComponent,
+    ViewdetailformComponent,
+    EditClubComponent,
+    ButtonDetail1RendererComponent,
+  
+    EditClubForm1Component,
     
   
    
@@ -73,6 +94,10 @@ import { EditAccountFormComponent } from './admin/edit-account-form/edit-account
     MatPaginatorModule,
     NgxPaginationModule,
     AgGridModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatTabsModule
  
   ],
   providers: [],
