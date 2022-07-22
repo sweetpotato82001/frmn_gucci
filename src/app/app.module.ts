@@ -43,8 +43,17 @@ import { ButtonDetailRendererComponent } from './admin/button-detail-renderer/bu
 import { ViewdetailformComponent } from './admin/viewdetailform/viewdetailform.component';
 import { EditClubComponent } from './admin/edit-club/edit-club.component';
 import { ButtonDetail1RendererComponent } from './admin/button-detail1-renderer/button-detail1-renderer.component';
-
 import { EditClubForm1Component } from './admin/edit-club-form1/edit-club-form1.component';
+import { AddNageurComponent } from './admin/add-nageur/add-nageur.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { ViewNageursComponent } from './admin/view-nageurs/view-nageurs.component';
+import { FilterNageursComponent } from './admin/filter-nageurs/filter-nageurs.component';
+import { ButtonDetail2RendererComponent } from './admin/button-detail2-renderer/button-detail2-renderer.component';
+import { NageurDetailFormComponent } from './admin/nageur-detail-form/nageur-detail-form.component';
+import { EditNageurComponent } from './admin/edit-nageur/edit-nageur.component';
+import { ButtonEdit1RendererComponent } from './admin/button-edit1-renderer/button-edit1-renderer.component';
+import { EditNageurFormComponent } from './admin/edit-nageur-form/edit-nageur-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,8 +78,16 @@ import { EditClubForm1Component } from './admin/edit-club-form1/edit-club-form1.
     ViewdetailformComponent,
     EditClubComponent,
     ButtonDetail1RendererComponent,
-  
+    
     EditClubForm1Component,
+       AddNageurComponent,
+       ViewNageursComponent,
+       FilterNageursComponent,
+       ButtonDetail2RendererComponent,
+       NageurDetailFormComponent,
+       EditNageurComponent,
+       ButtonEdit1RendererComponent,
+       EditNageurFormComponent,
     
   
    
@@ -97,10 +114,12 @@ import { EditClubForm1Component } from './admin/edit-club-form1/edit-club-form1.
     MatMenuModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
  
   ],
-  providers: [],
+  providers: [MatDatepickerModule  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
