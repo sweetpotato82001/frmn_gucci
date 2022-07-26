@@ -8,6 +8,7 @@ import { ButtonDetailRendererComponent } from '../button-detail-renderer/button-
   styleUrls: ['./look-for-club.component.css']
 })
 export class LookForClubComponent implements OnInit {
+  
   columnDefs=[
     {headerName:"id",field:"id", sortable:true,filter:true},
     {headerName:"Club's name",field:"name" , sortable:true,filter:true},
@@ -23,12 +24,12 @@ export class LookForClubComponent implements OnInit {
     {
       id:0,
       name:'',
-      summer_club:false,
+      summerClub:false,
       sportive:false,
       synchro:false,
-      water_polo:false,
+      waterPolo:false,
       plongeon:false,
-      eau_libre:false,
+      eauLibre:false,
     },
     
   ];

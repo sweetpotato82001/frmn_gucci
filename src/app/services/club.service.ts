@@ -6,8 +6,31 @@ import baseUrl from './helper';
 })
 export class ClubService {
 
-  constructor(private http:HttpClient) { }
-  public clubs(){
-    return this.http.get(`${baseUrl}/admin/clubs`);
+  constructor(private _htpp: HttpClient) { }
+
+  //create club
+  createClub(club:any){
+    return this._htpp.post(`${baseUrl}/club/`,club);
+  }
+
+  //get all clubs
+  clubs(){
+    return this._htpp.get(`${baseUrl}/club/clubs/`);
+  }
+
+  
+   //update club
+  updateClub(club:any){
+    return this._htpp.put(`${baseUrl}/club/update_club`, club);
+  }
+  
+ //get club by id 
+  getClubById(id:any){
+    return this._htpp.get(`${baseUrl}/club/${id}`);
+  }
+  
+  //delete club
+  deleteClub(id:any){
+    return this._htpp.delete(`${baseUrl}/club/${id}`);
   }
 }

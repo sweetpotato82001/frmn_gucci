@@ -1,6 +1,7 @@
 <mat-card class="container">
     <h1>Add New Club</h1>
     <div class="row">
+       <form (ngSubmit)="formSubmit()">
         <mat-tab-group>
             <mat-tab label="Club infos"> 
                 <div class="col-md-10 offset-md-1">
@@ -157,6 +158,7 @@
         </mat-tab>
           </mat-tab-group>
          
+       </form>
 
     <br>
     </div>

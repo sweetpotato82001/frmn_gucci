@@ -34,7 +34,7 @@ export class EditClubComponent implements OnInit {
     
   ];
   frameworkComponents = {
-    btnCellRenderer: ButtonDetail1RendererComponent
+    btnCellRenderer: ButtonDetail1RendererComponent  
   };
   constructor(private club:ClubService) { }
   ngOnInit(): void {

@@ -12,7 +12,7 @@
            <mat-form-field class="full-width" appearance="outline">
                <mat-label class="labelemail">User email</mat-label>
                <input class="emailinput"
-               [(ngModel)]="login.email"
+               [(ngModel)]="loginData.username"
                name="email"
                required
                matInput placeholder="Email"
@@ -25,7 +25,7 @@
            <mat-form-field class="full-width" appearance="outline">
                <mat-label class="labelpassword">Password</mat-label>
                <input class="pwdinput"
-                [(ngModel)]="login.password"
+                [(ngModel)]="loginData.password"
                 name="password"cd
                 required
                 type="Password" 

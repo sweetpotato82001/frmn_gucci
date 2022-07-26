@@ -54,6 +54,8 @@ import { NageurDetailFormComponent } from './admin/nageur-detail-form/nageur-det
 import { EditNageurComponent } from './admin/edit-nageur/edit-nageur.component';
 import { ButtonEdit1RendererComponent } from './admin/button-edit1-renderer/button-edit1-renderer.component';
 import { EditNageurFormComponent } from './admin/edit-nageur-form/edit-nageur-form.component';
+import { ProfilComponent } from './admin/profil/profil.component';
+import { AuthInterceptorProviders } from './services/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +90,7 @@ import { EditNageurFormComponent } from './admin/edit-nageur-form/edit-nageur-fo
        EditNageurComponent,
        ButtonEdit1RendererComponent,
        EditNageurFormComponent,
+       ProfilComponent,
     
   
    
@@ -119,7 +122,7 @@ import { EditNageurFormComponent } from './admin/edit-nageur-form/edit-nageur-fo
     MatNativeDateModule
  
   ],
-  providers: [MatDatepickerModule  ],
+  providers: [MatDatepickerModule,AuthInterceptorProviders  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

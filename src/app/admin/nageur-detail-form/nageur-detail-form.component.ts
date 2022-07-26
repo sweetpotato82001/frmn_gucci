@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { NageurService } from 'src/app/services/nageur.service';
 import Swal from 'sweetalert2';
 import * as  countriesData from '../../services/countries.json'
 @Component({
@@ -9,7 +11,7 @@ import * as  countriesData from '../../services/countries.json'
 })
 export class NageurDetailFormComponent implements OnInit {
   countries: any = (countriesData as any).default;
- 
+  id:any
   public nageur={
    nom:'',
    prenom:'',
@@ -40,9 +42,22 @@ export class NageurDetailFormComponent implements OnInit {
    maitre:false,
    dirigeant:false,
   };
-  constructor() { }
+  constructor(private _nageur:NageurService, private _snack:MatSnackBar, private _route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    let id = parseInt(this._route.snapshot.paramMap.get('id') || '{}');
+    this.id =id
+    this._nageur.getNageurById(id).subscribe(
+      (data:any)=>{
+        this.nageur=data;
+        console.log(data);
+        console.log(this.nageur);
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !',"Something went wrong. Please try later.",'error');
+      }
+    )
   }
 
 }

@@ -7,7 +7,7 @@
            
                     <mat-form-field appearance="fill" class="mt20 w100 countries">
                         <mat-label >Countries</mat-label>
-                        <mat-select  name="category" class="country" disabled>
+                        <mat-select  name="category" class="country" disabled [(ngModel)]="club.countries">
                           <mat-option *ngFor="let c  of countries" [value]="c.name" disabled>
                                 {{c.name}}
                           </mat-option>

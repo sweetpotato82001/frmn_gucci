@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ClubService } from 'src/app/services/club.service';
+import { NageurService } from 'src/app/services/nageur.service';
 import Swal from 'sweetalert2';
 import * as  countriesData from '../../services/countries.json'
 @Component({
@@ -11,37 +14,44 @@ export class EditNageurFormComponent implements OnInit {
 
   countries: any = (countriesData as any).default;
  
+
+  id:any;
   public nageur={
-   nom:'',
-   prenom:'',
-   sexe:'',
-   date_naissance:'',
-   code:'',
-   name:'',
-   email:'',
-   summer_club:false,
-   sportive:false,
-   synchro:false,
-   water_polo:false,
-   plongeon:false,
-   eau_libre:false,
-   adresse:'',
-   supplement_adresse:'',
-   zip:'',
-   local:'',
-   telephone:'',
-   fax:'',
-   lieu_naissance:'',
-   responsable:'',
-   federation:'',
-   club:'',
-   type_licence1:'',
-   type_licence2:'',
-   type_licence3:'',
-   maitre:false,
-   dirigeant:false,
+    nom:'',
+    prenom:'',
+    sexe:'',
+    dateNaissance:'',
+    code:'',
+    email:'',
+    civilite:'',
+    nationalite:'',
+    summer_nageur:false,
+    sportive:false,
+    synchro:false,
+    water_polo:false,
+    plongeon:false,
+    eau_libre:false,
+    adresse:'',
+    supplement_adresse:'',
+    zip:'',
+    local:'',
+    telephone:'',
+    fax:'',
+    lieu_naissance:'',
+    responsable:'',
+    federation:'',
+    club:'',
+    depot:'',
+    type_licence1:'',
+    type_licence2:'',
+    type_licence3:'',
+    obliteration:'',
+    maitre:false,
+    dirigeant:false,
   };
-  constructor() { }
+
+  public club: any[];
+  constructor(private _nageur: NageurService , private _router:Router,private _snack:MatSnackBar, private _route:ActivatedRoute,private _club:ClubService) {this.club =[] }
   addClub(){
     
   }
@@ -116,6 +126,44 @@ export class EditNageurFormComponent implements OnInit {
    
   }
   ngOnInit(): void {
+
+    this._club.clubs().subscribe(
+      (data:any)=>{
+        this.club = data;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+
+
+
+    let id = parseInt(this._route.snapshot.paramMap.get('id') || '{}');
+    this.id =id
+    this._nageur.getNageurById(id).subscribe(
+      (data:any)=>{
+        this.nageur=data;
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !',"Something went wrong. Please try later.",'error');
+      }
+    )
+  }
+
+  formSubmit(){
+    this._nageur.updateNageur(this.nageur).subscribe(
+      (data:any)=>{
+        Swal.fire("Success !!", 'Club was updated successfully','success').then(() =>{
+          this._router.navigate(['/admin/editCompetitor']);
+        });
+        
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !!', 'Something went wrong try later !!', 'error');
+      }
+    )
   }
 
 }

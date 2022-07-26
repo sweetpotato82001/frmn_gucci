@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Component } from 'ag-grid-community';
 import { AddClubComponent } from './admin/add-club/add-club.component';
 import { AddNageurComponent } from './admin/add-nageur/add-nageur.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
@@ -12,6 +13,7 @@ import { FilterNageursComponent } from './admin/filter-nageurs/filter-nageurs.co
 import { LookForAccountComponent } from './admin/look-for-account/look-for-account.component';
 import { LookForClubComponent } from './admin/look-for-club/look-for-club.component';
 import { NageurDetailFormComponent } from './admin/nageur-detail-form/nageur-detail-form.component';
+import { ProfilComponent } from './admin/profil/profil.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { ViewAccountComponent } from './admin/view-account/view-account.component';
 import { ViewClubsComponent } from './admin/view-clubs/view-clubs.component';
@@ -19,6 +21,7 @@ import { ViewNageursComponent } from './admin/view-nageurs/view-nageurs.componen
 import { ViewdetailformComponent } from './admin/viewdetailform/viewdetailform.component';
 import { WelcomeComponent } from './admin/welcome/welcome.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
+import { LoginComponent } from './login/login.component';
 import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
@@ -50,7 +53,7 @@ const routes: Routes = [
       component: EditAccountComponent,
      },
      {
-      path:'editAccountForm',
+      path:'editAccountForm/:id',
       component: EditAccountFormComponent,
      },
      {
@@ -66,7 +69,7 @@ const routes: Routes = [
       component:LookForClubComponent,
      },
      {
-      path:'ClubDetails',
+      path:'ClubDetails/:id',
       component:ViewdetailformComponent,
      },
      {
@@ -74,7 +77,7 @@ const routes: Routes = [
       component:EditClubComponent,
      },
      {
-      path:'editClubForm',
+      path:'editClubForm/:id',
       component:EditClubForm1Component,
      },
      {
@@ -90,7 +93,7 @@ const routes: Routes = [
       component:FilterNageursComponent,
      },
      {
-      path:'CompetitorDetails',
+      path:'CompetitorDetails/:id',
       component:NageurDetailFormComponent,
      },
      {
@@ -98,10 +101,14 @@ const routes: Routes = [
       component:EditNageurComponent,
      },
      {
-      path:'editCompetitorForm',
+      path:'editCompetitorForm/:id',
       component:EditNageurFormComponent,
      },
     ]
+},
+{
+  path:'',
+  component: LoginComponent
 }
 ];
 

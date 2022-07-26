@@ -38,7 +38,7 @@ export class EditNageurComponent implements OnInit {
   constructor(private nageur:NageurService) { }
 
   ngOnInit(): void {
-    this.nageur.nageurs().subscribe(
+    this.nageur.getAllNageurs().subscribe(
       (data:any)=>{
         this.nageurs=data;
         console.log(this.nageurs);

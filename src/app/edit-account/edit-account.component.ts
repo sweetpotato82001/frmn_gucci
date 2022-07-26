@@ -2,6 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import{AccountsService } from '../services/accounts.service';
 import Swal from 'sweetalert2';
 import { ButtonCellRendererComponent } from '../button-cell-renderer/button-cell-renderer.component';
+import { UserService } from '../services/user.service';
+interface IUserData{
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  username: string;
+  password: string;
+  enabeled: boolean;
+
+}
+
 @Component({
   selector: 'app-edit-account',
   templateUrl: './edit-account.component.html',
@@ -16,7 +28,7 @@ export class EditAccountComponent implements OnInit {
     {headerName:"username",field:"username", sortable:true,filter:true},
     {headerName:"password",field:"password", sortable:true,filter:true},
     {headerName:"enabled",field:"enabled", sortable:true,filter:true},
-    {headerName:"Action",field:"edit",cellRenderer:ButtonCellRendererComponent},
+    {headerName:"Action",field:"id",cellRenderer:ButtonCellRendererComponent},
   ];
     accounts=[
       {
@@ -33,10 +45,10 @@ export class EditAccountComponent implements OnInit {
     frameworkComponents = {
       btnCellRenderer: ButtonCellRendererComponent
     };
-  constructor(private account:AccountsService) { }
+  constructor(private account:UserService) { }
 
   ngOnInit(): void {
-    this.account.accounts().subscribe(
+    this.account.getAllusers().subscribe(
       (data:any)=>{
         this.accounts=data;
         console.log(this.accounts);

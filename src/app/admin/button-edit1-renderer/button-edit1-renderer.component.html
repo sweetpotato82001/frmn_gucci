@@ -1,4 +1,4 @@
 
-<button mat-raised-button class="edit" (click)="btnClickedHandler1()" routerLink="/admin/editCompetitorForm">Edit</button>
+<button mat-raised-button class="edit" [routerLink]="['/admin/editCompetitorForm', value]">Edit</button>
 &nbsp;&nbsp;&nbsp;
-<button mat-raised-button class="delete" (click)="btnClickedHandler2()">Delete</button>
+<button mat-raised-button class="delete" (click)="onClickDeleteHandler()">Delete</button>

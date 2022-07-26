@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import{AccountsService } from '../../services/accounts.service';
 import {MatPaginator} from '@angular/material/paginator';
 import Swal from 'sweetalert2';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-view-account',
   templateUrl: './view-account.component.html',
@@ -10,8 +11,7 @@ import Swal from 'sweetalert2';
 
 export class ViewAccountComponent implements OnInit {
 
-
- p: number = 1;
+  p: number = 1;
   accounts=[
     {
       id: 0,
@@ -24,10 +24,10 @@ export class ViewAccountComponent implements OnInit {
     },
     
   ];
-  constructor(private account:AccountsService) { }
- 
+  constructor(private _user:UserService) { }
+
   ngOnInit(): void {
-    this.account.accounts().subscribe(
+    this._user.getAllusers().subscribe(
       (data:any)=>{
         this.accounts=data;
         console.log(this.accounts);
@@ -38,5 +38,4 @@ export class ViewAccountComponent implements OnInit {
       }
     )
   }
-
 }

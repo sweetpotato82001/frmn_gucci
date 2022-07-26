@@ -26,7 +26,7 @@ export class LoginService {
 
   //login user: set token in localStorage
   public loginUser(token: any){
-    localStorage.setItem("token",token);
+    localStorage.setItem('token',token);
     return true;
   }
 

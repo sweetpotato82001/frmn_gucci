@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{AccountsService } from '../services/accounts.service';
 import Swal from 'sweetalert2';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-test',
@@ -8,6 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+  
   columnDefs=[
     {headerName:"id",field:"id", sortable:true,filter:true},
     {headerName:"first Name",field:"firstName" , sortable:true,filter:true},
@@ -30,10 +32,10 @@ export class TestComponent implements OnInit {
     
   ];
   
-  constructor(private account:AccountsService) { }
+  constructor(private account:UserService) { }
 
   ngOnInit(): void {
-    this.account.accounts().subscribe(
+    this.account.getAllusers().subscribe(
       (data:any)=>{
         this.accounts=data;
         console.log(this.accounts);

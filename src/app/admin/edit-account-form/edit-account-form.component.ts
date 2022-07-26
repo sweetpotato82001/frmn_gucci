@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-account-form',
   templateUrl: './edit-account-form.component.html',
@@ -7,54 +10,52 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditAccountFormComponent implements OnInit {
 
-  constructor(private snack:MatSnackBar) { }
+  constructor(private snack:MatSnackBar,private _user:UserService,private route:ActivatedRoute,private _router:Router) { }
   public user={
+    id : 1,
     username:'',
     password:'',
     firstName:'',
     lastName:'',
     email:'',
-    phone:'',
   };
-  public  i=0;
+  id:any
   ngOnInit(): void {
-  }
-  reset(){
-    this.user.username="";
-    this.user.password="";
-    this.user.firstName="";
-    this.user.lastName="";
-    this.user.email="";
-    this.user.phone="";
-    
-   }
-   
-  formSubmit()
-  {
-      console.log(this.user);
-      if(this.user.username== '' || this.user.username== null){
-        //alert('User is required !!');
-        this.snack.open("Username is required !! ", '', {
-          duration:3000,
-        }); 
-        return;
+    let id = parseInt(this.route.snapshot.paramMap.get('id') || '{}');
+    this.id =id
+    this._user.getUserById(id).subscribe(
+      (data:any)=>{
+        this.user=data;
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !',"Something went wrong. Please try later.",'error');
       }
-       //addUser: userservice
-      //  this.useerService.addUser(this.user).subscribe(
-      //    (data:any)=>{
-      //      success
-      //      console.log(data)
-      //     alert("success");
-      //     Swal.fire('Successfully done !!','User id is '+ data.id, 'success');
-      //    },
-      //    (error)=>{
-      //      error
-      //      this.snack.open("Something went wrong !! ", '', {
-      //       duration:3000,
-      //     }); 
-      //    }
-      //  )
+    )
+  }
+  
+   
+  onSubmit(){
+    this._user.updateUser(this.user).subscribe(
+      (data:any)=>{
+        Swal.fire("Success !!", 'User was updated successfully','success').then(() =>{
+          this._router.navigate(['/admin/editAccount']);
+        });
+        
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !!', 'Something went wrong try later !!', 'error');
+      }
+    )
   }
 
+  clear(){
+    this.user.username='';
+    this.user.password='';
+    this.user.firstName='';
+    this.user.lastName='';
+    this.user.email='';
+  }
  
 }
