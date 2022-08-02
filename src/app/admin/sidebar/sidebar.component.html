@@ -14,9 +14,9 @@
 			<mat-icon mat-list-icon>pool</mat-icon>
 			Competitors
 		</button>
-		<button *ngIf="test==0" mat-list-item routerLink="/admin/add-quiz">
+		<button *ngIf="test==0" (click)="test=4;" mat-list-item routerLink="/admin/add-quiz">
 			<mat-icon mat-list-icon>support_agent</mat-icon>
-			Trainers
+			Competitions
 		</button>
         <button *ngIf="test==0" (click)="test=2;" mat-list-item routerLink="/admin/add-quiz">
 			<mat-icon mat-list-icon>sports</mat-icon>
@@ -77,5 +77,58 @@
 			<mat-icon mat-list-icon>edit</mat-icon>
 			Edit competitor
 		</button>
+
+		<button *ngIf="test==4" mat-list-item routerLink="/admin/tablescore">
+			<mat-icon mat-list-icon>table</mat-icon>
+			Record table
+		</button>
+		<button *ngIf="test==4" (click)="test=5;" mat-list-item >
+			<mat-icon mat-list-icon>format_list_numbered</mat-icon>
+			Types of competitions
+		</button>
+		<button *ngIf="test==5" (click)="test=6;" mat-list-item>
+			<mat-icon mat-list-icon>pool</mat-icon>
+			sport swimming
+		</button>
+		<button *ngIf="test==5"  mat-list-item >
+			<mat-icon mat-list-icon>sports_volleyball</mat-icon>
+			on the fly competition
+		</button>
+		<button *ngIf="test==5"  mat-list-item >
+			<mat-icon mat-list-icon>timer</mat-icon>
+			time taking
+		</button>
+		<button *ngIf="test==5"  mat-list-item >
+			<mat-icon mat-list-icon>local_convenience_store</mat-icon>
+			competition type 24h
+		</button>
+		<button *ngIf="test==6"  (click)="test=7;" mat-list-item >
+			<mat-icon mat-list-icon>sports</mat-icon>
+			Organizing competition
+		</button>
+		<button *ngIf="test==6"  mat-list-item routerLink="/admin/addEpreuve">
+			<mat-icon mat-list-icon>quiz</mat-icon>
+			organizing tests
+		</button>
+		
+		<button *ngIf="test==7"  mat-list-item routerLink="/admin/addCompetition">
+			<mat-icon mat-list-icon>add_circle</mat-icon>
+			add competition
+		</button>
+		<button *ngIf="test==7"  mat-list-item routerLink="/admin/viewCompetition">
+			<mat-icon mat-list-icon>list</mat-icon>
+			View competition
+		</button>
+		
+		<button *ngIf="test==7"  mat-list-item routerLink="/admin/editCompetition">
+			<mat-icon mat-list-icon>edit</mat-icon>
+			Edit competition
+		</button>
+		<button *ngIf="test==7"  mat-list-item routerLink="/admin/historyCompetition">
+			<mat-icon mat-list-icon>history</mat-icon>
+			History competition
+		</button>
+
+		
 	</mat-action-list>
   </mat-card>

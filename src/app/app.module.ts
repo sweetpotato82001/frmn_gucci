@@ -56,6 +56,18 @@ import { ButtonEdit1RendererComponent } from './admin/button-edit1-renderer/butt
 import { EditNageurFormComponent } from './admin/edit-nageur-form/edit-nageur-form.component';
 import { ProfilComponent } from './admin/profil/profil.component';
 import { AuthInterceptorProviders } from './services/auth.interceptor';
+import { TableScoreComponent } from './table-score/table-score.component';
+import { AddCompetitionComponent } from './add-competition/add-competition.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { EpreuveSportifComponent } from './epreuve-sportif/epreuve-sportif.component';
+import { ViewCompetitionComponent } from './view-competition/view-competition.component';
+import { ButtonDetailCRendererComponent } from './services/button-detail-c-renderer/button-detail-c-renderer.component';
+import { DetailCompetitionComponent } from './admin/detail-competition/detail-competition.component';
+import { DetailsCompetitionComponent } from './admin/details-competition/details-competition.component';
+import { EditCompetitionComponent } from './admin/edit-competition/edit-competition.component';
+import { ButtonDetailC1RendererComponent } from './admin/button-detail-c1-renderer/button-detail-c1-renderer.component';
+import { EditCompetitionFormComponent } from './admin/edit-competition-form/edit-competition-form.component';
+import { HistoryCompetitionComponent } from './admin/history-competition/history-competition.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +103,18 @@ import { AuthInterceptorProviders } from './services/auth.interceptor';
        ButtonEdit1RendererComponent,
        EditNageurFormComponent,
        ProfilComponent,
+       TableScoreComponent,
+       AddCompetitionComponent,
+       EpreuveSportifComponent,
+       ViewCompetitionComponent,
+       ButtonDetailCRendererComponent,
+       DetailCompetitionComponent,
+       DetailsCompetitionComponent,
+       EditCompetitionComponent,
+       ButtonDetailC1RendererComponent,
+       EditCompetitionFormComponent,
+       HistoryCompetitionComponent,
+     
     
   
    
@@ -119,7 +143,8 @@ import { AuthInterceptorProviders } from './services/auth.interceptor';
     MatSlideToggleModule,
     MatTabsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCheckboxModule
  
   ],
   providers: [MatDatepickerModule,AuthInterceptorProviders  ],
