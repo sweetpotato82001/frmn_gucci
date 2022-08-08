@@ -167,9 +167,11 @@
                 #checkboxes
                     name="sportive"
                     color="admin-color"
-                    class=" container1"
+                    class="container1"
                     [checked]="false"
+                    [(ngModel)]="competition.all_cat"
                     type="checkbox"
+                    (click)="click1()"
                    >
                   Record for all categories
                 </mat-slide-toggle>
@@ -179,7 +181,9 @@
                     color="admin-color"
                     class=" container1"
                     [checked]="false"
+                    [(ngModel)]="competition.rec_by_cat"
                     type="checkbox"
+                    (click)="click2()"
                    >
                   Record by category
                 </mat-slide-toggle>
@@ -189,7 +193,9 @@
                     color="admin-color"
                     class=" container1"
                     [checked]="false"
+                    [(ngModel)]="competition.both"
                     type="checkbox"
+                    (click)="click3()"
                    >
                   Both
                 </mat-slide-toggle>
@@ -197,11 +203,40 @@
                     <mat-checkbox class="example-margin "  [(ngModel)]="competition.worldwide" name="worldwide">WorldWide</mat-checkbox>
                     <mat-checkbox class="example-margin checkbox3" [(ngModel)]="competition.africa" name="africa">Africa</mat-checkbox>
                     <mat-checkbox class="example-margin checkbox3" [(ngModel)]="competition.morocco" name="africa">Morocco</mat-checkbox>
-                    <mat-checkbox class="example-margin checkbox3" [(ngModel)]="competition.meeting" name="meeting">Meeting</mat-checkbox>
+                    <mat-checkbox class="example-margin checkbox3" [(ngModel)]="competition.meeting" name="meeting" (click)="click4()">Meeting</mat-checkbox>
                   </section>
-          
-         
-          
+                  <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                    <mat-label >Federation</mat-label>
+                    <mat-select >
+                        <mat-option value="performance_cadets">Performancees Cadets</mat-option>
+                        <mat-option value="performance_juniors">Performance juniors</mat-option>
+                        <mat-option value="performance_minimes">Performance minimes</mat-option>
+                        <mat-option value="xi_comen_cup">XI COMEN CUP</mat-option>
+                        <mat-option value="african_records_13-14">African records 13-14ans</mat-option>
+                        <mat-option value="african_records_15-16">African records 15-16ans</mat-option>
+                        <mat-option value="performance_poussins">Performances poussins</mat-option>
+                        <mat-option value="performance_benjamins">Performances benjamins</mat-option>
+                        <mat-option value="records_afrique">Records d'afrique</mat-option>
+                        <mat-option value="championnats_d'afrique">Championnats d'afrique</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                  Saisissez ici le libellé du record
+                <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+              
+                
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                  Saisissez ici la légende pour un record battu
+                <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                  Saisissez ici la légende pour un record égalé
+                <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+                </mat-form-field>
+                
           
           <button mat-raised-button class="clear clear2" >Clear</button>
       </div>

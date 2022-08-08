@@ -68,6 +68,8 @@ import { EditCompetitionComponent } from './admin/edit-competition/edit-competit
 import { ButtonDetailC1RendererComponent } from './admin/button-detail-c1-renderer/button-detail-c1-renderer.component';
 import { EditCompetitionFormComponent } from './admin/edit-competition-form/edit-competition-form.component';
 import { HistoryCompetitionComponent } from './admin/history-competition/history-competition.component';
+import { EpreuveComponent } from './admin/epreuve/epreuve.component';
+import { NageurHistoryComponent } from './nageur-history/nageur-history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,6 +116,8 @@ import { HistoryCompetitionComponent } from './admin/history-competition/history
        ButtonDetailC1RendererComponent,
        EditCompetitionFormComponent,
        HistoryCompetitionComponent,
+       EpreuveComponent,
+       NageurHistoryComponent,
      
     
   

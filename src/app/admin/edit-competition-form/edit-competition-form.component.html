@@ -197,9 +197,39 @@
                     <mat-checkbox class="example-margin "   name="worldwide">WorldWide</mat-checkbox>
                     <mat-checkbox class="example-margin checkbox3"  name="africa">Africa</mat-checkbox>
                     <mat-checkbox class="example-margin checkbox3"  name="africa">Morocco</mat-checkbox>
-                    <mat-checkbox class="example-margin checkbox3"  name="meeting">Meeting</mat-checkbox>
+                    <mat-checkbox class="example-margin checkbox3" (click)="click4()" name="meeting">Meeting</mat-checkbox>
                   </section>
-          
+                  <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                    <mat-label >Federation</mat-label>
+                    <mat-select >
+                        <mat-option value="performance_cadets">Performancees Cadets</mat-option>
+                        <mat-option value="performance_juniors">Performance juniors</mat-option>
+                        <mat-option value="performance_minimes">Performance minimes</mat-option>
+                        <mat-option value="xi_comen_cup">XI COMEN CUP</mat-option>
+                        <mat-option value="african_records_13-14">African records 13-14ans</mat-option>
+                        <mat-option value="african_records_15-16">African records 15-16ans</mat-option>
+                        <mat-option value="performance_poussins">Performances poussins</mat-option>
+                        <mat-option value="performance_benjamins">Performances benjamins</mat-option>
+                        <mat-option value="records_afrique">Records d'afrique</mat-option>
+                        <mat-option value="championnats_d'afrique">Championnats d'afrique</mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                  Saisissez ici le libellé du record
+                <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+              
+                
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                  Saisissez ici la légende pour un record battu
+                <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill" class="mt20 w100 countries" *ngIf="competition.hidden==true">
+                  Saisissez ici la légende pour un record égalé
+                <input required   type="text" name="nom"  placeholder="Enter here" matInput id=""/>
+                </mat-form-field>
          
           
           
